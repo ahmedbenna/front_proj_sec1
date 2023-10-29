@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useSnackbar } from '../context/SnackbarProvider';
+import { useSnackbar } from './SnackbarContext';
 import { json, redirect, useNavigate } from 'react-router-dom';
 import useApi from '../hocks/useApi';
 // Create an AuthContext
@@ -14,19 +14,19 @@ export const useAuth = () => {
 
 // Create an AuthProvider component
 export const AuthProvider = ({ children }) => {
-  const { get, data } = useApi()
+  const { get, data,loading } = useApi()
+
   const showSnackbar = useSnackbar();
   const [user, setUser] = useState();
   const [token, setToken] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Authentication state
   // const navigate = useNavigate();
-  useEffect(() => {
-    const getCurentUser =  () => {
-       setToken(JSON.parse(localStorage.getItem('token')))
-       setUser(JSON.parse(localStorage.getItem('user')))
-    }
-    getCurentUser()
-  }, []);
+  // React.useEffect(() => {
+  //   if(localStorage.getItem('token'))
+  //   get('/user/curent')
+  //   setUser(data)
+  // }, [loading]);
+  
 
   const login = async (values) => {
 
@@ -35,14 +35,13 @@ export const AuthProvider = ({ children }) => {
       console.log(response)
       await setUser(response.data.user);
       localStorage.setItem("token", JSON.stringify(response.data.token))
-      localStorage.setItem('user', JSON.stringify(response.data.user));
 
       setIsAuthenticated(true);
       // if (user.role=='admin') {
       //   return redirect("/dashboard");
       // }
       // else {
-        // redirect("/dashboard");
+      // redirect("/dashboard");
       // }
     } catch (err) {
       console.error(err)
@@ -65,7 +64,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ setUser, user, token, isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

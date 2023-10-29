@@ -20,15 +20,17 @@ const useApi = () => {
     axiosInstance.interceptors.response.use(
       (response) => {
         // Successful response handling
-        setLoading(false);
+        
         setData(response.data);
         setError(null);
+        setLoading(false);
         return response;
       },
       (err) => {
         // Error response handling
-        setLoading(false);
+        
         setError(err);
+        setLoading(false);
         return Promise.reject(err);
       }
     );
@@ -48,11 +50,12 @@ const useApi = () => {
       setData(response.data);
       setError(null);
     } catch (err) {
-      if (err.status == 403) {
+      if (err.status == 403||err.status == 401) {
         localStorage.removeItem("token")
         localStorage.removeItem("user")
+        window.location.replace('/login')
       }
-      redirect("/dashboard")
+      
 
       setError(err);
     } finally {

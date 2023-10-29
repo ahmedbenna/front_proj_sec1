@@ -9,13 +9,14 @@ import Footer from './comp/common/Footer';
 import Login from './pages/Login';
 import { useAuth } from './context/AuthContext';
 import PrivateRouteAdmin from './comp/common/PrivateRouteAdmin';
-import Dashboard from './pages/Dashboars';
+import Dashboard from './pages/Dashboard';
+import PrivateRoute from './comp/common/privateRoute';
 
 
 
 
 function App() {
-  const { user, isAuthenticated, logout } = useAuth();
+  // const { user, isAuthenticated, logout } = useAuth();
 
   return (
     <div >
@@ -26,15 +27,17 @@ function App() {
           <Route element={<PrivateRouteAdmin />}>
             <Route path='/dashboardAdmin' element={<DashboardAdmin />} />
           </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path='/' element={<Dashboard />} />
+          </Route>
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/dashboard' element={<Dashboard />} />
           <Route element={<PrivateRouteClient />}>
             <Route path='/DashboardClient' element={<DashboardClient />} />
           </Route>
 
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
 
       </BrowserRouter>
     </div>

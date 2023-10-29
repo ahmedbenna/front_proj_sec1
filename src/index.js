@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import { AuthProvider } from './context/AuthContext';
-import { SnackbarProvider } from './context/SnackbarProvider';
+import { SnackbarProvider } from './context/SnackbarContext';
 
 axios.defaults.baseURL = 'http://localhost:3000/'
 axios.defaults.headers.common = {
@@ -15,11 +15,11 @@ axios.defaults.headers.common = {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <SnackbarProvider> */}
-      <AuthProvider>
+    {/* <AuthProvider> */}
+      {/* <SnackbarProvider> */}
         <App />
-      </AuthProvider>
-    {/* </SnackbarProvider> */}
+      {/* </SnackbarProvider> */}
+    {/* </AuthProvider> */}
   </React.StrictMode>
 );
 
