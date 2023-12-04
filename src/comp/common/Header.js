@@ -64,7 +64,7 @@ export default function MenuAppBar() {
     return (<Loading />)
   else
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, backgroundColor:'red' }}>
         <AppBar position="static">
           <Toolbar>
             {/* <IconButton
@@ -132,7 +132,7 @@ export default function MenuAppBar() {
               )
             ) : (<>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                aaaaaaaaaa
+                complaint
               </Typography>
               <Link to="/login">
                 <Button style={{color : "white"}}>Login</Button>
