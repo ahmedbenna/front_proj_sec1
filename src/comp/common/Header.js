@@ -64,7 +64,7 @@ export default function MenuAppBar() {
     return (<Loading />)
   else
     return (
-      <Box sx={{ flexGrow: 1, backgroundColor:'red' }}>
+      <Box sx={{ flexGrow: 1,  backgroundColor:'red' }}>
         <AppBar position="static">
           <Toolbar>
             {/* <IconButton
