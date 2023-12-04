@@ -2,7 +2,7 @@
 FROM node:16
 
 # Set environment variables
-ENV API_BASE_URL="http://localhost:3000/"
+ENV API_BASE_URL="http://3.84.143.125/:3000/"
 
 # Set the working directory to /app
 WORKDIR /app
