@@ -132,7 +132,7 @@ export default function MenuAppBar() {
               )
             ) : (<>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                dfgh
+                aaaaa
               </Typography>
               <Link to="/login">
                 <Button style={{color : "white"}}>Login</Button>
