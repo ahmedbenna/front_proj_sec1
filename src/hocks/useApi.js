@@ -12,7 +12,7 @@ const useApi = () => {
   const fetchData = async (url, method = 'get', requestData = null) => {
     setLoading(true);
     const axiosInstance = axios.create({
-      baseURL: 'http://localhost:3000/',
+      baseURL: process.env.API_BASE_URL,
       headers: {
         Authorization: token ? `Bearer ${token}` : '', // Add the token if available
       },
