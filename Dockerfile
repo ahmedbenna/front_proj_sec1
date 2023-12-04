@@ -2,7 +2,7 @@
 FROM node:16
 
 # Set environment variables
-ENV REACT_APP_API_BASE_U="http://localhost:3000/"
+ENV REACT_APP_API_BASE_U=http://localhost:3000/
 
 # Set the working directory to /app
 WORKDIR /app
