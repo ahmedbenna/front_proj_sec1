@@ -42,17 +42,17 @@ const useAxios = () => {
         }
     };
 
-    const remove = async (url) => {
-        try {
-            setLoading(true);
-            await axios.delete(url);
-            setData(null);
-            setLoading(false);
-        } catch (error) {
-            setError(error);
-            setLoading(false);
-        }
-    };
+    // const remove = async (url) => {
+    //     try {
+    //         setLoading(true);
+    //         await axios.delete(url);
+    //         setData(null);
+    //         setLoading(false);
+    //     } catch (error) {
+    //         setError(error);
+    //         setLoading(false);
+    //     }
+    // };
 
     return {
         data,
