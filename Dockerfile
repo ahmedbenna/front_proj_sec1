@@ -13,13 +13,14 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm install
 
-RUN npm run build
+
 
 # Copy the current directory contents to /app
 COPY . .
 
 # Expose port 3333
 EXPOSE 3333
+RUN npm run build
 
 # Start the Node.js application
 CMD ["serve", "-l", "3333", "-s", "build"]
