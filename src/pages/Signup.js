@@ -176,7 +176,6 @@ const Signup = () => {
               helperText={formik.touched.grade && formik.errors.grade}
             />
             {error && <Typography variant='body2' style={{ color: "red" }} > {error.message}</Typography>}
-
             {loading ? (
               <CircularProgress />
             ) : (
