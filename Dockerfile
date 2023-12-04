@@ -13,7 +13,6 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm install
 
-
 # Copy the current directory contents to /app
 COPY . .
 
