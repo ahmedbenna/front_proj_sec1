@@ -30,17 +30,17 @@ const useAxios = () => {
         }
     };
 
-    // const put = async (url, putData) => {
-    //     try {
-    //         setLoading(true);
-    //         const response = await axios.put(url, putData);
-    //         setData(response.data);
-    //         setLoading(false);
-    //     } catch (error) {
-    //         setError(error);
-    //         setLoading(false);
-    //     }
-    // };
+    const put = async (url, putData) => {
+        try {
+            setLoading(true);
+            const response = await axios.put(url, putData);
+            setData(response.data);
+            setLoading(false);
+        } catch (error) {
+            setError(error);
+            setLoading(false);
+        }
+    };
 
     const remove = async (url) => {
         try {
