@@ -7,7 +7,7 @@ import axios from 'axios';
 import { AuthProvider } from './context/AuthContext';
 import { SnackbarProvider } from './context/SnackbarContext';
 
-axios.defaults.baseURL = process.env.API_BASE_URL
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_U
 axios.defaults.headers.common = {
   'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}`
 };
