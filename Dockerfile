@@ -19,6 +19,7 @@ COPY . .
 # Expose port 3333
 EXPOSE 3333
 RUN npm run build
+RUN npm install -g serve
 
 # Start the Node.js application
 CMD ["serve", "-l", "3333", "-s", "build"]
